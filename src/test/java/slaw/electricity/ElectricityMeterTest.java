@@ -5,16 +5,16 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class ElectricityMeterTest {
+public class ElectricityMeterTest { // zestaw testow
 
 //sprawdzamy czy doda wartosc, --przypadek testowy--
     @Test
     public void addKwh() {
-//nowy licznik
+//nowy licznik -given
         ElectricityMeter electricityMeter = new ElectricityMeter();
-//dodanie
+//dodanie -when
         electricityMeter.addKwh(1);
-//sprawdzamy czy jest prawda
+//sprawdzamy czy jest prawda -than
         Assert.assertTrue(electricityMeter.getKwh() == 1); // trzeba dodac gettera
     }
 }
