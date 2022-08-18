@@ -29,6 +29,7 @@ public class ElectricityMeterTest { // zestaw testow
         electricityMeter.getHowMoreExpensiveNormalIs();
 
     }
+    //ignorowanie testu
 
 
 }
