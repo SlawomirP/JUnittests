@@ -40,5 +40,16 @@ public class ElectricityMeterTest { // zestaw testow
 
     }
 
+    //GWT GIVEN WHEN THEN
+    @Test
+    public void givenNewMeterWhenFirstAddictionThenProperCounter(){
+        //Given
+        ElectricityMeter electricityMeter = new ElectricityMeter();
+        //When
+        electricityMeter.addKwh(1);
+        //Then
+        Assert.assertTrue(electricityMeter.getKwh() == 1);
+    }
+
 
 }
