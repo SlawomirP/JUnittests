@@ -19,4 +19,16 @@ public class ElectricityMeterTest { // zestaw testow
 
         //Assert.assertTrue("powinno dac 1", electricityMeter.getKwh() == 1);
     }
+
+
+    //testowanie wyjatku, pamietać o dodaniu expected
+    @Test (expected = ArithmeticException.class)
+    public void getHowMoreExpensiveNormalIs() {
+        ElectricityMeter electricityMeter = new ElectricityMeter();
+        electricityMeter.setCentsForKwh(90);
+        electricityMeter.getHowMoreExpensiveNormalIs();
+
+    }
+
+
 }
