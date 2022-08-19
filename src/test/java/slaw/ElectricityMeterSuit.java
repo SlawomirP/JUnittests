@@ -8,6 +8,7 @@ import slaw.electricity.TwoElectrocityMetersTest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
     ElectricityMeterTest.class,
+        ElectricityMeterTest.class,
         TwoElectrocityMetersTest.class
 })
 

@@ -8,11 +8,11 @@ import org.junit.Test;
 
 public class ThreeElectrocityMetersTest {
 
-    static ElectricityMeter electricityMeter; // obiekt tworzony niżej
+    private static ElectricityMeter electricityMeter; // obiekt tworzony niżej
 
     @BeforeClass //adnotacja z JUnita -- zlożone, skomplikowane,
     // czasochłonne instrukcje zostanie to stworzone raz i
-    // bedzie używane przez wszystko
+    // bedzie używane przez wszystko, tworzy sie przed powstaniem klasy
     public static void init(){
         electricityMeter = new ElectricityMeter(); // static !!!
     }
@@ -27,16 +27,12 @@ public class ThreeElectrocityMetersTest {
 
     @Test
     public void addKwh() {
-        ElectricityMeter electricityMeter = new ElectricityMeter();
-        ElectricityMeter electricityMeter1 = new ElectricityMeter();
         electricityMeter.addKwh(1);
         Assert.assertTrue(electricityMeter.getKwh() == 1);
     }
 
     @Test(expected = ArithmeticException.class)
     public void getHowMoreExpensiveNormalIs() {
-        ElectricityMeter electricityMeter = new ElectricityMeter();
-        ElectricityMeter electricityMeter1 = new ElectricityMeter();
         electricityMeter.setCentsForKwh(90);
         electricityMeter.getHowMoreExpensiveNormalIs();
 
@@ -45,8 +41,6 @@ public class ThreeElectrocityMetersTest {
     @Ignore("komunikat ktory pokaze sie jako komentarz przy tescie")
     @Test
     public void addKwh2() {
-        ElectricityMeter electricityMeter = new ElectricityMeter();
-        ElectricityMeter electricityMeter1 = new ElectricityMeter();
         electricityMeter.addKwh(1);
         Assert.assertTrue(electricityMeter.getKwh() == 1);
 
@@ -55,8 +49,7 @@ public class ThreeElectrocityMetersTest {
     @Test
     public void givenNewMeterWhenFirstAddictionThenProperCounter() {
         //Given
-        ElectricityMeter electricityMeter = new ElectricityMeter();
-        ElectricityMeter electricityMeter1 = new ElectricityMeter();
+
         //When
         electricityMeter.addKwh(1);
         //Then
