@@ -10,41 +10,31 @@ import org.junit.Test;
 
 public class ThreeElectrocityMetersTest {
 
-    private static ElectricityMeter electricityMeter; // obiekt tworzony niżej prv i static
+    private static ElectricityMeter electricityMeter;
 
     @BeforeClass
-    //adnotacja z JUnita -- zlożone, skomplikowane,
-    // czasochłonne instrukcje zostanie to stworzone raz i
-    // bedzie używane przez wszystko, tworzy sie przed powstaniem klasy
-
-    public static void init(){
-        electricityMeter = new ElectricityMeter(); // static !!!
+    public static void init() {
+        electricityMeter = new ElectricityMeter();
     }
 
     @Before
-    //adnotacja z JUnita -- wykona sie przed kazdym testem
-    //mozna tutaj np ustawic warunki poczatkowe, przyklad reset prametrow
-    //tworzymy tutaj środowisko deterministyczne dla testów
-
-    public void ustawWarunki(){
+    public void ustawWarunki() {
         electricityMeter.reset();
     }
-    //sprztanie tego co postalo w @BeforeClass i @Before
 
     @AfterClass
-    public static void wyczyszczenieInit (){
-        //release connections/files
+    public static void wyczyszczenieInit() {
+
     }
 
     @After
-    public void likwidujUstawWarunki(){
-        //ustawienie warunkow przed testem
+    public void likwidujUstawWarunki() {
     }
 
-    @Test
     public void addKwh() {
         electricityMeter.addKwh(1);
-        Assert.assertTrue(electricityMeter.getKwh() == 1);
+        electricityMeter.addKwh(2);
+        Assert.assertTrue(electricityMeter.getKwh() == 3);
     }
 
     @Test(expected = ArithmeticException.class)

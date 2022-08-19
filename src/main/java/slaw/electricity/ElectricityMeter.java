@@ -1,10 +1,5 @@
 package slaw.electricity;
 
-//zadania
-//1 obliczanie kwh
-//2 ustawianie taryf i stawek
-//3 o ile drozszy jest prad poza taryfa
-//4 narzedzie do ustawiania taryfy i stawki
 
 import java.util.Calendar;
 
@@ -23,25 +18,17 @@ public class ElectricityMeter {
     //dodanie kwh
     public void addKwh(float kwhToAdd) {
         if (isTariffNow()) {
-            //dodanie kwh pod warunkiem taryfy
             kwhTariff += kwhToAdd;
         } else {
-            //dodanie kwh bez taryfy
             kwh += kwhToAdd;
         }
     }
 
-    //napisanie metody sprawdzajacej czy jest taryfa
     private boolean isTariffNow() {
-        //pobierze aktualna date !!!!!!
         Calendar rightNow = Calendar.getInstance();
-        //nastepnie z tego wyciagamy godzine
         int hour = rightNow.get(Calendar.HOUR_OF_DAY);
-        //zwroc czy hour jest miedzy godzinami taryfy
         return hour > electricityTariffStartHour && hour < electricityTariffEndtHour;
     }
-
-    //o ile jest drozszy prad poza taryfa, koment do java doc
 
     /**
      * @return how much more expensive is normal price comparing
@@ -51,8 +38,6 @@ public class ElectricityMeter {
         return (centsForKwh * 100 / centsForKwhTariff) - 100;
     }
 
-    //settery do ustawiania ale one maja byc dostepne tylko w tym pakiecie
-    //dlatego usuwamy public
     void setCentsForKwh(int centsForKwh) {
         this.centsForKwh = centsForKwh;
     }
@@ -77,7 +62,7 @@ public class ElectricityMeter {
         return kwh;
     }
 
-    public void reset() { // reset parametrow
+    public void reset() {
         this.kwh = 0;
         this.centsForKwh = 0;
 
@@ -87,5 +72,9 @@ public class ElectricityMeter {
 
         this.electricityTariffStartHour = 0;
         this.electricityTariffEndtHour = 0;
+    }
+
+    public float getKwhTariff() {
+        return kwhTariff;
     }
 }
