@@ -32,8 +32,14 @@ public class ThreeElectrocityMetersTest {
     //sprztanie tego co postalo w @BeforeClass i @Before
 
     @AfterClass
+    public static void wyczyszczenieInit (){
+        //release connections/files
+    }
 
     @After
+    public void likwidujUstawWarunki(){
+        //ustawienie warunkow przed testem
+    }
 
     @Test
     public void addKwh() {
