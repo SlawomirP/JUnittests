@@ -9,7 +9,7 @@ public class ElectricityMeter {
     //ODPOWIEDZIALNOSC METODI ISTARIFFNOW BO ONA ROBI
     //ZA DUZO, TU JEGO POLE
 
-    TariffProvider tp;
+    TariffProvider tp; // wazne!!! zastosowanie interfejsu !!!
 
     //PO STWORZENIU INTERFEJSU TWORZYMY 2 KONSTRUKTORY
     //JEDEN PUSTY A DRUGI BEDZIE WSTRZYKIWAL INTERFEJS
