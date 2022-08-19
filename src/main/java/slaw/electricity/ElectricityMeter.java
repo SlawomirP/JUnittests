@@ -21,17 +21,18 @@ public class ElectricityMeter {
     private int electricityTariffEndtHour = 0; // koniec taryfy
 
     //dodanie kwh
-    public void addKwh(float kwhToAdd){
-        if(isTariffNow()){
+    public void addKwh(float kwhToAdd) {
+        if (isTariffNow()) {
             //dodanie kwh pod warunkiem taryfy
             kwhTariff += kwhToAdd;
-        }else {
+        } else {
             //dodanie kwh bez taryfy
             kwh += kwhToAdd;
         }
     }
+
     //napisanie metody sprawdzajacej czy jest taryfa
-    private boolean isTariffNow(){
+    private boolean isTariffNow() {
         //pobierze aktualna date !!!!!!
         Calendar rightNow = Calendar.getInstance();
         //nastepnie z tego wyciagamy godzine
@@ -43,14 +44,14 @@ public class ElectricityMeter {
     //o ile jest drozszy prad poza taryfa, koment do java doc
 
     /**
-     *
      * @return how much more expensive is normal price comparing
      * to tariff in percentages
      */
-    public int getHowMoreExpensiveNormalIs(){
+    public int getHowMoreExpensiveNormalIs() {
         return (centsForKwh * 100 / centsForKwhTariff) - 100;
     }
-//settery do ustawiania ale one maja byc dostepne tylko w tym pakiecie
+
+    //settery do ustawiania ale one maja byc dostepne tylko w tym pakiecie
     //dlatego usuwamy public
     void setCentsForKwh(int centsForKwh) {
         this.centsForKwh = centsForKwh;
@@ -74,5 +75,17 @@ public class ElectricityMeter {
 
     public float getKwh() {
         return kwh;
+    }
+
+    public void reset() { // reset parametrow
+        this.kwh = 0;
+        this.centsForKwh = 0;
+
+        this.tariffon = false;
+        this.kwhTariff = 0;
+        this.centsForKwhTariff = 0;
+
+        this.electricityTariffStartHour = 0;
+        this.electricityTariffEndtHour = 0;
     }
 }

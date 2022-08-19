@@ -15,7 +15,7 @@ public class ElectricityMeterTest { // zestaw testow
         ElectricityMeter electricityMeter = new ElectricityMeter();
 //dodanie -when
         electricityMeter.addKwh(1);
-//sprawdzamy czy jest prawda -than
+//sprawdzamy czy jest prawda -then
         Assert.assertTrue(electricityMeter.getKwh() == 1);// trzeba dodac gettera
 
         //Assert.assertTrue("powinno dac 1", electricityMeter.getKwh() == 1);
