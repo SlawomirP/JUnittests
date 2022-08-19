@@ -8,22 +8,25 @@ import org.junit.Test;
 
 public class ThreeElectrocityMetersTest {
 
-    private static ElectricityMeter electricityMeter; // obiekt tworzony niżej
+    private static ElectricityMeter electricityMeter; // obiekt tworzony niżej prv i static
 
-    @BeforeClass //adnotacja z JUnita -- zlożone, skomplikowane,
+    @BeforeClass
+    //adnotacja z JUnita -- zlożone, skomplikowane,
     // czasochłonne instrukcje zostanie to stworzone raz i
     // bedzie używane przez wszystko, tworzy sie przed powstaniem klasy
+
     public static void init(){
         electricityMeter = new ElectricityMeter(); // static !!!
     }
 
-    @Before //adnotacja z JUnita -- wykona sie przed kazdym testem
+    @Before
+    //adnotacja z JUnita -- wykona sie przed kazdym testem
     //mozna tutaj np ustawic warunki poczatkowe, przyklad reset prametrow
     //tworzymy tutaj środowisko deterministyczne dla testów
+
     public void ustawWarunki(){
         electricityMeter.reset();
     }
-
 
     @Test
     public void addKwh() {
