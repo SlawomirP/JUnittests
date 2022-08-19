@@ -5,6 +5,32 @@ import java.util.Calendar;
 
 public class ElectricityMeter {
 
+    //TWORZYMY INTERFEJS KTORY POZWOLI NAM ROZDZIELIC
+    //ODPOWIEDZIALNOSC METODI ISTARIFFNOW BO ONA ROBI
+    //ZA DUZO, TU JEGO POLE
+
+    TariffProvider tp;
+
+    //PO STWORZENIU INTERFEJSU TWORZYMY 2 KONSTRUKTORY
+    //JEDEN PUSTY A DRUGI BEDZIE WSTRZYKIWAL INTERFEJS
+    //DZIEKI TEMU DRUGIEMU UZYSKAMY POLE KTORE ZASTOSUJEMY
+    //W METODZIE ISTARIFFNOW
+
+    public ElectricityMeter(TariffProvider tp) {
+        this.tp = tp;
+    }
+
+    public ElectricityMeter() {
+        tp = new TariffProvider() {
+            @Override
+            public boolean isTariffNow() {
+                Calendar rightNow = Calendar.getInstance();
+                int hour = rightNow.get(Calendar.HOUR_OF_DAY);
+                return hour > electricityTariffStartHour && hour < electricityTariffEndtHour;
+            }
+        };
+    }
+
     private float kwh = 0;
     private int centsForKwh = 0; // cena groszy za kwh
 
@@ -24,10 +50,8 @@ public class ElectricityMeter {
         }
     }
 
-    private boolean isTariffNow() {
-        Calendar rightNow = Calendar.getInstance();
-        int hour = rightNow.get(Calendar.HOUR_OF_DAY);
-        return hour > electricityTariffStartHour && hour < electricityTariffEndtHour;
+    public boolean isTariffNow() {
+        return tp.isTariffNow();
     }
 
     /**
