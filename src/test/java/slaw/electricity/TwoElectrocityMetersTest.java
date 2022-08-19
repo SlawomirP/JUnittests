@@ -11,6 +11,7 @@ public class TwoElectrocityMetersTest { // zestaw testow
     public void addKwh() {
 //nowy licznik -given
         ElectricityMeter electricityMeter = new ElectricityMeter();
+        ElectricityMeter electricityMeter1 = new ElectricityMeter();
 //dodanie -when
         electricityMeter.addKwh(1);
 //sprawdzamy czy jest prawda -than
@@ -24,6 +25,7 @@ public class TwoElectrocityMetersTest { // zestaw testow
     @Test (expected = ArithmeticException.class)
     public void getHowMoreExpensiveNormalIs() {
         ElectricityMeter electricityMeter = new ElectricityMeter();
+        ElectricityMeter electricityMeter1 = new ElectricityMeter();
         electricityMeter.setCentsForKwh(90);
         electricityMeter.getHowMoreExpensiveNormalIs();
 
@@ -33,6 +35,7 @@ public class TwoElectrocityMetersTest { // zestaw testow
     @Test
     public void addKwh2() {
         ElectricityMeter electricityMeter = new ElectricityMeter();
+        ElectricityMeter electricityMeter1 = new ElectricityMeter();
         electricityMeter.addKwh(1);
         Assert.assertTrue(electricityMeter.getKwh() == 1);// trzeba dodac gettera
 
@@ -43,6 +46,7 @@ public class TwoElectrocityMetersTest { // zestaw testow
     public void givenNewMeterWhenFirstAddictionThenProperCounter(){
         //Given
         ElectricityMeter electricityMeter = new ElectricityMeter();
+        ElectricityMeter electricityMeter1 = new ElectricityMeter();
         //When
         electricityMeter.addKwh(1);
         //Then
