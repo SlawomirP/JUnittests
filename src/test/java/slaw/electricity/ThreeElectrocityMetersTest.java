@@ -1,5 +1,7 @@
 package slaw.electricity;
 
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -27,6 +29,11 @@ public class ThreeElectrocityMetersTest {
     public void ustawWarunki(){
         electricityMeter.reset();
     }
+    //sprztanie tego co postalo w @BeforeClass i @Before
+
+    @AfterClass
+
+    @After
 
     @Test
     public void addKwh() {
