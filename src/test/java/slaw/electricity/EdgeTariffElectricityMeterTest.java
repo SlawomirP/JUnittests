@@ -57,7 +57,7 @@ public class EdgeTariffElectricityMeterTest {
         if (isTariffInCase) {
             Assert.assertEquals(sumKwhTariffInCase, electricityMeter.getKwhTariff(), 0.01);
         } else {
-            Assert.assertEquals(sumKwhInCase, electricityMeter.getKwhTariff(), 0.01);
+            Assert.assertEquals(sumKwhInCase, electricityMeter.getKwh(), 0.01);
 
         }
     }
